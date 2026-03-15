@@ -127,12 +127,12 @@ when "001" =>
    f_Q_next <= "011";
 when "011" =>
    f_Q_next <= "111";
+when "111" => 
+   f_Q_next <= "000";
 when "100" =>
    f_Q_next <= "110";
 when "110" => 
    f_Q_next <= "111";
-when "111" => 
-   f_Q_next <= "000";
 when others =>
    f_Q_next <= "000";
        
