@@ -11,12 +11,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="57.151 ns"></ZoomEndTime>
-      <Cursor1Time time="16.700 ns"></Cursor1Time>
+      <ZoomEndTime time="229.801 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+      <ValueColumnWidth column_width="149"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="9" />
    <wvobject fp_name="/thunderbird_fsm_tb/w_clk" type="logic">
@@ -39,6 +39,18 @@
       <obj_property name="ElementShortName">w_right</obj_property>
       <obj_property name="ObjectShortName">w_right</obj_property>
    </wvobject>
+   <wvobject fp_name="/thunderbird_fsm_tb/w_lights_L" type="array">
+      <obj_property name="ElementShortName">w_lights_L[2:0]</obj_property>
+      <obj_property name="ObjectShortName">w_lights_L[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_fsm_tb/w_lights_R" type="array">
+      <obj_property name="ElementShortName">w_lights_R[2:0]</obj_property>
+      <obj_property name="ObjectShortName">w_lights_R[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/thunderbird_fsm_tb/thunderbird_0/f_Q" type="array">
       <obj_property name="ElementShortName">f_Q[2:0]</obj_property>
       <obj_property name="ObjectShortName">f_Q[2:0]</obj_property>
@@ -46,14 +58,5 @@
    <wvobject fp_name="/thunderbird_fsm_tb/thunderbird_0/f_Q_next" type="array">
       <obj_property name="ElementShortName">f_Q_next[2:0]</obj_property>
       <obj_property name="ObjectShortName">f_Q_next[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/thunderbird_fsm_tb/w_lights_L" type="array">
-      <obj_property name="ElementShortName">w_lights_L[2:0]</obj_property>
-      <obj_property name="ObjectShortName">w_lights_L[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/thunderbird_fsm_tb/w_lights_R" type="array">
-      <obj_property name="ElementShortName">w_lights_R[2:0]</obj_property>
-      <obj_property name="ObjectShortName">w_lights_R[2:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>
