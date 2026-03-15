@@ -106,41 +106,102 @@ architecture thunderbird_fsm_arch of thunderbird_fsm is
 begin
 
 	-- CONCURRENT STATEMENTS --------------------------------------------------------	
-	
-    case_statements : process (f_Q, i_left, i_right)
+	process(f_Q, i_left, i_right)
 begin
 
 case f_Q is
 
+-- IDLE
 when "000" =>
-   if i_right = '1' and i_left = '1' then
-       f_Q_next <= "111";
-   elsif i_left = '1' then
-       f_Q_next <= "001";
-   elsif i_right = '1' then
-       f_Q_next <= "100";
-   else
-       f_Q_next <= "000";
-   end if;
-   
+    if i_right = '1' and i_left = '1' then
+        f_Q_next <= "111";
+    elsif i_left = '1' then
+        f_Q_next <= "001";
+    elsif i_right = '1' then
+        f_Q_next <= "100";
+    else
+        f_Q_next <= "000";
+    end if;
+
+-- LEFT SEQUENCE
 when "001" =>
-   f_Q_next <= "011";
+    f_Q_next <= "011";
+
 when "011" =>
-   f_Q_next <= "111";
-when "111" => 
-   f_Q_next <= "000";
+    f_Q_next <= "101";
+
+when "101" =>
+    f_Q_next <= "000";
+
+-- RIGHT SEQUENCE
 when "100" =>
-   f_Q_next <= "110";
-when "110" => 
-   f_Q_next <= "111";
+    f_Q_next <= "110";
+
+when "110" =>
+    f_Q_next <= "010";
+
+when "010" =>
+    f_Q_next <= "000";
+
 when others =>
-   f_Q_next <= "000";
-       
+    f_Q_next <= "000";
+
 end case;
+
 end process;
 
-o_lights_L <= f_Q; --when i_left = '1' else "000";
-o_lights_R <= f_Q;--when i_right = '1' else "000";
+
+-- OUTPUT LOGIC
+process(f_Q)
+begin
+
+case f_Q is
+
+-- LEFT LIGHTS
+
+when "001" =>
+    o_lights_L <= "001";
+    o_lights_R <= "000";
+
+when "011" =>
+    o_lights_L <= "011";
+    o_lights_R <= "000";
+
+when "101" =>
+    o_lights_L <= "111";
+    o_lights_R <= "000";
+-- RIGHT LIGHTS
+when "100" =>
+    o_lights_L <= "000";
+    o_lights_R <= "100";
+
+when "110" =>
+    o_lights_L <= "000";
+    o_lights_R <= "110";
+
+when "010" =>
+    o_lights_L <= "000";
+    o_lights_R <= "111";
+
+when "111" =>
+    o_lights_L <= "111";
+    o_lights_R <= "111";
+
+when others =>
+    o_lights_L <= "000";
+    o_lights_R <= "000";
+
+end case;
+
+end process;
+
+--o_lights_L <= "111" when (i_left='1' and i_right='1' and f_Q="111") else
+--              "000" when (i_left='1' and i_right='1') else
+--              f_Q;
+
+--o_lights_R <= "111" when (i_left='1' and i_right='1' and f_Q="111") else
+--              "000" when (i_left='1' and i_right='1') else
+--              f_Q;
 
     ---------------------------------------------------------------------------------
 	

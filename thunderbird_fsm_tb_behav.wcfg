@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="229.801 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomStartTime time="7.450 ns"></ZoomStartTime>
+      <ZoomEndTime time="22.751 ns"></ZoomEndTime>
+      <Cursor1Time time="10.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="149"></ValueColumnWidth>
+      <ValueColumnWidth column_width="143"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/thunderbird_fsm_tb/w_clk" type="logic">
       <obj_property name="ElementShortName">w_clk</obj_property>
       <obj_property name="ObjectShortName">w_clk</obj_property>
@@ -58,5 +58,9 @@
    <wvobject fp_name="/thunderbird_fsm_tb/thunderbird_0/f_Q_next" type="array">
       <obj_property name="ElementShortName">f_Q_next[2:0]</obj_property>
       <obj_property name="ObjectShortName">f_Q_next[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/thunderbird_fsm_tb/w_clk" type="logic">
+      <obj_property name="ElementShortName">w_clk</obj_property>
+      <obj_property name="ObjectShortName">w_clk</obj_property>
    </wvobject>
 </wave_config>
