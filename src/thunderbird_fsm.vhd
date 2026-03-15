@@ -139,8 +139,8 @@ when others =>
 end case;
 end process;
 
-o_lights_L <= f_Q when i_left = '1' else "000";
-o_lights_R <= f_Q when i_right = '1' else "000";
+o_lights_L <= f_Q; --when i_left = '1' else "000";
+o_lights_R <= f_Q;--when i_right = '1' else "000";
 
     ---------------------------------------------------------------------------------
 	
