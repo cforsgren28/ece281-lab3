@@ -152,47 +152,49 @@ end process;
 
 
 -- OUTPUT LOGIC
+
 process(f_Q)
 begin
-
-case f_Q is
-
--- LEFT LIGHTS
-
-when "001" =>
-    o_lights_L <= "001";
-    o_lights_R <= "000";
-
-when "011" =>
-    o_lights_L <= "011";
-    o_lights_R <= "000";
-
-when "101" =>
-    o_lights_L <= "111";
-    o_lights_R <= "000";
--- RIGHT LIGHTS
-when "100" =>
-    o_lights_L <= "000";
-    o_lights_R <= "100";
-
-when "110" =>
-    o_lights_L <= "000";
-    o_lights_R <= "110";
-
-when "010" =>
-    o_lights_L <= "000";
-    o_lights_R <= "111";
-
-when "111" =>
-    o_lights_L <= "111";
-    o_lights_R <= "111";
-
-when others =>
+    -- Default to all off
     o_lights_L <= "000";
     o_lights_R <= "000";
 
-end case;
+    case f_Q is
+        -- LEFT SEQUENCE
+        when "001" =>
+            o_lights_L <= "001";  -- inner LED
+            o_lights_R <= "000";
 
+        when "011" =>
+            o_lights_L <= "011";  -- inner + middle
+            o_lights_R <= "000";
+
+        when "101" =>
+            o_lights_L <= "111";  -- all left LEDs
+            o_lights_R <= "000";
+
+        -- RIGHT SEQUENCE (mirror LSB to inside left)
+        when "100" =>
+            o_lights_L <= "000";
+            o_lights_R <= "001";  -- only LSB on
+
+        when "110" =>
+            o_lights_L <= "000";
+            o_lights_R <= "011";  -- inner + middle
+
+        when "010" =>
+            o_lights_L <= "000";
+            o_lights_R <= "111";  -- all right LEDs
+
+        -- HAZARDS (both sides full)
+        when "111" =>
+            o_lights_L <= "111";
+            o_lights_R <= "111";
+
+        when others =>
+            o_lights_L <= "000";
+            o_lights_R <= "000";
+    end case;
 end process;
 
 --o_lights_L <= "111" when (i_left='1' and i_right='1' and f_Q="111") else

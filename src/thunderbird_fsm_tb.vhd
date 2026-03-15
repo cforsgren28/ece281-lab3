@@ -120,9 +120,9 @@ begin
 	       assert w_lights_L = "000" report "bad left turn" severity failure;
 	       
 	   w_right <= '1'; wait for k_clk_period*1;
-	     assert w_lights_R = "100" report "bad right turn" severity failure;
+	     assert w_lights_R = "001" report "bad right turn" severity failure;
 	   wait for k_clk_period*1;
-	     assert w_lights_R = "110" report "bad right turn" severity failure;
+	     assert w_lights_R = "011" report "bad right turn" severity failure;
 	   wait for k_clk_period*1;
 	     assert w_lights_R = "111" report "bad right turn" severity failure;
 	     
